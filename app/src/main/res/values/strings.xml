@@ -11,4 +11,6 @@
     <string name="categories">Categories:</string>
     <string name="add_target">Add Target</string>
     <string name="need_to_save_per_month">Need to save per month</string>
+    <string name="you_don_t_have_target_yest_start_by_adding_one">You don\'t have target yest! start by adding one.
+    </string>
 </resources>
