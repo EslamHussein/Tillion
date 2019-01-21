@@ -5,16 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tremoloo.MainActivity
 import com.tremoloo.R
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_set_salary.*
 
-class LoginActivity : AppCompatActivity() {
+class SetSalaryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        loginButton.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, SetSalaryActivity::class.java))
+        setContentView(R.layout.activity_set_salary)
+        saveSalaryButton.setOnClickListener {
+            startActivity(Intent(this@SetSalaryActivity, MainActivity::class.java))
             finish()
         }
     }

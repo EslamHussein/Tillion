@@ -4,4 +4,6 @@
     <string name="user_name">username</string>
     <string name="password">Password</string>
     <string name="login">login</string>
+    <string name="expected_avg_income">Expected Avg. income is:</string>
+    <string name="save">save</string>
 </resources>
