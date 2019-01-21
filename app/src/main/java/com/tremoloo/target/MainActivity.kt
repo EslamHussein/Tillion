@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
         setSupportActionBar(mainToolbar)
 
         val data = ArrayList<TargetItem>()
-        repeat(10) {
+        repeat(5) {
             data.add(TargetItem("mini copper", R.drawable.ic_sport_car, 2000F, 300F))
         }
 

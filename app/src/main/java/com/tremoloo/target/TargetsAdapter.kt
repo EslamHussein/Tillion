@@ -26,13 +26,13 @@ class TargetsAdapter(private val context: Context, private val data: ArrayList<T
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item = data!![position]
-        val percentage = (item.savedAmount / item.price) * 100
+        val percentage = ((item.savedAmount / item.price) * 100).toInt()
         holder.targetImageView.setImageResource(item.image)
         holder.targetNameTextView.text = item.name
-        holder.targetPriceTextView.text = item.price.toString()
-        holder.targetProgress.progress = percentage.toInt()
-        holder.targetPercentageTextView.text = percentage.toString()
-        holder.savedAmountTextView.text = item.savedAmount.toString()
+        holder.savedPeresantageTextView.text = item.price.toString()
+        holder.targetProgress.progress = percentage
+        holder.remainingTextView.text = (item.price - item.savedAmount).toString()
+        holder.totalPriceTextView.text = item.price.toString()
 
         holder.itemView.setOnClickListener {
             context.startActivity(Intent(context, TargetDetailsActivity::class.java).apply {
@@ -46,9 +46,9 @@ class TargetsAdapter(private val context: Context, private val data: ArrayList<T
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val targetImageView: ImageView = view.findViewById(R.id.targetImageView)
         val targetNameTextView: TextView = view.findViewById(R.id.targetNameTextView)
-        val targetPriceTextView: TextView = view.findViewById(R.id.targetPriceTextView)
+        val savedPeresantageTextView: TextView = view.findViewById(R.id.savedPeresantageTextView)
         val targetProgress: ProgressBar = view.findViewById(R.id.targetProgress)
-        val targetPercentageTextView: TextView = view.findViewById(R.id.targetPersantageTextView)
-        val savedAmountTextView: TextView = view.findViewById(R.id.savedAmountTextView)
+        val remainingTextView: TextView = view.findViewById(R.id.remainingTextView)
+        val totalPriceTextView: TextView = view.findViewById(R.id.totalPriceTextView)
     }
 }
