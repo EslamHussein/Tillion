@@ -74,7 +74,6 @@
     <TextView android:id="@+id/savedAmountLabelTextView"
               android:text="Saved amount:"
               style="@style/TextAppearance.MaterialComponents.Headline6"
-
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/targetPersantageTextView"
               app:layout_constraintStart_toStartOf="parent"/>
@@ -88,6 +87,5 @@
               app:layout_constraintTop_toTopOf="@id/savedAmountLabelTextView"
               app:layout_constraintBottom_toBottomOf="@id/savedAmountLabelTextView"
               app:layout_constraintStart_toEndOf="@id/savedAmountLabelTextView"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

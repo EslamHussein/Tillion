@@ -3,7 +3,6 @@ package com.tremoloo.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tremoloo.MainActivity
 import com.tremoloo.R
 import kotlinx.android.synthetic.main.activity_login.*
 

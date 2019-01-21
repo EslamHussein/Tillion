@@ -1,8 +1,9 @@
-package com.tremoloo
+package com.tremoloo.target
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.tremoloo.R
 import kotlinx.android.synthetic.main.activity_add_target.*
 
 
@@ -18,10 +19,8 @@ class AddTargetActivity : AppCompatActivity() {
                 .show()
         }
 
-
         addTargetActionButton.setOnClickListener {
             finish()
         }
-
     }
 }
