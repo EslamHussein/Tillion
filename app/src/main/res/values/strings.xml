@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tremoloo</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="user_name">username</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
+</resources>
