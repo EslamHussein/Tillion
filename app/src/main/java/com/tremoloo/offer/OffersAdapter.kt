@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tremoloo.R
@@ -14,7 +13,7 @@ class OffersAdapter(private val data: ArrayList<OfferItem>? = null) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.target_item_view, parent, false)
+            .inflate(R.layout.offer_item_view, parent, false)
         return ViewHolder(view)
 
     }
@@ -23,24 +22,19 @@ class OffersAdapter(private val data: ArrayList<OfferItem>? = null) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-//        val item = data!![position]
-//        val percentage = (item.savedAmount / item.price) * 100
-//        holder.targetImageView.setImageResource(item.image)
-//        holder.targetNameTextView.text = item.name
-//        holder.targetPriceTextView.text = item.price.toString()
-//        holder.targetProgress.progress = percentage.toInt()
-//        holder.targetPercentageTextView.text = percentage.toString()
-//        holder.savedAmountTextView.text = item.savedAmount.toString()
+        val item = data!![position]
 
+        holder.discountPerTextView.text = "${item.discount} OFF"
+        holder.offerImageView.setImageResource(item.image)
+        holder.sellerTextView.text = item.seller
+        holder.offerPriceTextView.text = item.price.toString()
     }
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val targetImageView: ImageView = view.findViewById(R.id.targetImageView)
-        val targetNameTextView: TextView = view.findViewById(R.id.targetNameTextView)
-        val targetPriceTextView: TextView = view.findViewById(R.id.targetPriceTextView)
-        val targetProgress: ProgressBar = view.findViewById(R.id.targetProgress)
-        val targetPercentageTextView: TextView = view.findViewById(R.id.targetPersantageTextView)
-        val savedAmountTextView: TextView = view.findViewById(R.id.savedAmountTextView)
+        val offerImageView: ImageView = view.findViewById(R.id.offerImageView)
+        val sellerTextView: TextView = view.findViewById(R.id.sellerTextView)
+        val offerPriceTextView: TextView = view.findViewById(R.id.offerPriceTextView)
+        val discountPerTextView: TextView = view.findViewById(R.id.discountPerTextView)
     }
 }
