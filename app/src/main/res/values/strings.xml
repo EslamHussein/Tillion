@@ -16,5 +16,11 @@
     <string name="savings">Savings</string>
     <string name="target">Target</string>
     <string name="boost">BOOST</string>
-    <string name="offers">offers</string>
+    <string name="offers">Offers</string>
+    <string name="saved">SAVED</string>
+    <string name="remaining">Remaining</string>
+    <string name="boost_from_people">Boost From People</string>
+    <string name="boost_your_target_from_your_friends_on_tillion_or_not">Boost your target from your friends on Tillion
+        or not
+    </string>
 </resources>

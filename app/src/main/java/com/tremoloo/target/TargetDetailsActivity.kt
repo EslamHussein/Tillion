@@ -13,6 +13,22 @@ class TargetDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_targed_details)
         setSupportActionBar(targetDetailsToolbar)
 
+
+        val data = intent.getParcelableExtra<TargetItem>("target")
+        title = data.name
+
+
+
+        targetImageView.setImageResource(data.image)
+        val percentage = ((data.savedAmount / data.price) * 100).toInt()
+
+        targetNameTextView.text = data.name
+        savedPeresantageTextView.text = percentage.toString()
+
+        targetProgress.progress = percentage
+        remainingTextView.text = (data.price - data.savedAmount).toString()
+        targetPriceTextView.text = data.price.toString()
+        remainingPersantageTextView.text = "${100 - percentage} to go!"
         offersRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@TargetDetailsActivity)
 //            adapter = TargetsAdapter(data)

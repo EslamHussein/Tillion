@@ -1,5 +1,7 @@
 package com.tremoloo.target
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +11,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tremoloo.R
 
-class TargetsAdapter(private val data: ArrayList<TargetItem>? = null) :
+class TargetsAdapter(private val context: Context, private val data: ArrayList<TargetItem>? = null) :
     RecyclerView.Adapter<TargetsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val view = LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(context)
             .inflate(R.layout.target_item_view, parent, false)
         return ViewHolder(view)
 
@@ -31,6 +33,12 @@ class TargetsAdapter(private val data: ArrayList<TargetItem>? = null) :
         holder.targetProgress.progress = percentage.toInt()
         holder.targetPercentageTextView.text = percentage.toString()
         holder.savedAmountTextView.text = item.savedAmount.toString()
+
+        holder.itemView.setOnClickListener {
+            context.startActivity(Intent(context, TargetDetailsActivity::class.java).apply {
+                putExtra("target", item)
+            })
+        }
 
     }
 
