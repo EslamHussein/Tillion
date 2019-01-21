@@ -18,5 +18,10 @@ class AddTargetActivity : AppCompatActivity() {
                 .show()
         }
 
+
+        addTargetActionButton.setOnClickListener {
+            finish()
+        }
+
     }
 }
