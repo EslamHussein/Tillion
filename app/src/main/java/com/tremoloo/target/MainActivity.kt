@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.include_empty_targets.*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         setSupportActionBar(mainToolbar)
 
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
             data.add(TargetItem("mini copper", R.mipmap.ic_launcher_round, 2000F, 300F))
         }
 
-        setContentView(R.layout.activity_main)
         targedsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = TargetsAdapter(data)

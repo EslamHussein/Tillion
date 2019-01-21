@@ -13,4 +13,8 @@
     <string name="need_to_save_per_month">Need to save per month</string>
     <string name="you_don_t_have_target_yest_start_by_adding_one">You don\'t have target yest! start by adding one.
     </string>
+    <string name="savings">Savings</string>
+    <string name="target">Target</string>
+    <string name="boost">BOOST</string>
+    <string name="offers">offers</string>
 </resources>
