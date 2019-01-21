@@ -6,4 +6,9 @@
     <string name="login">login</string>
     <string name="expected_avg_income">Expected Avg. income is:</string>
     <string name="save">save</string>
+    <string name="target_name">Target Name</string>
+    <string name="target_price">Target Price</string>
+    <string name="categories">Categories:</string>
+    <string name="add_target">Add Target</string>
+    <string name="need_to_save_per_month">Need to save per month</string>
 </resources>
