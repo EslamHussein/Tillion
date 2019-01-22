@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.payfort.fort.android.sdk.base.callbacks.FortCallBackManager
 import com.tremoloo.R
+import com.tremoloo.boost.BoostActivity
 import com.tremoloo.offer.OfferItem
 import com.tremoloo.offer.OffersAdapter
 import com.tremoloo.payfort.IPaymentRequestCallBack
@@ -24,6 +25,8 @@ class TargetDetailsActivity : AppCompatActivity(), PayOnClick, IPaymentRequestCa
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_targed_details)
         setSupportActionBar(targetDetailsToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
 
 
         val data = intent.getParcelableExtra<TargetItem>("target")
@@ -54,6 +57,10 @@ class TargetDetailsActivity : AppCompatActivity(), PayOnClick, IPaymentRequestCa
         offersRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@TargetDetailsActivity)
             adapter = OffersAdapter(this@TargetDetailsActivity, offers)
+        }
+
+        boostButton.setOnClickListener {
+            startActivity(Intent(this@TargetDetailsActivity, BoostActivity::class.java))
         }
 
     }

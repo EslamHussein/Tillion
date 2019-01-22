@@ -16,7 +16,8 @@
             style="@style/Toolbar"
             app:theme="@style/AppTheme.AppBarOverlay"
             app:layout_constraintEnd_toEndOf="parent">
-        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
 
             <ImageView android:layout_width="wrap_content"
                        android:src="@drawable/ic_logo"

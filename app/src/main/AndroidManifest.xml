@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-
     <application
             android:allowBackup="true"
             android:icon="@drawable/ic_app"
@@ -16,6 +15,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity
+                android:name=".boost.BoostActivity"
+                android:label="@string/title_activity_boost">
+        </activity>
         <activity android:name=".target.TargetDetailsActivity">
         </activity>
         <activity android:name=".target.AddTargetActivity">

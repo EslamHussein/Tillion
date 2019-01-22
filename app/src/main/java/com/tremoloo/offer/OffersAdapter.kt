@@ -3,6 +3,7 @@ package com.tremoloo.offer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -32,11 +33,10 @@ class OffersAdapter(private val activity: AppCompatActivity, private val data: A
         holder.sellerTextView.text = item.seller
         holder.offerPriceTextView.text = item.price.toString()
 
-        holder.itemView.setOnClickListener {
-
+        holder.getOfferButton.setOnClickListener {
             PaymentDialogFragment.newInstance(item).show(activity.supportFragmentManager, "fragment_edit_name");
-
         }
+
     }
 
 
@@ -45,5 +45,6 @@ class OffersAdapter(private val activity: AppCompatActivity, private val data: A
         val sellerTextView: TextView = view.findViewById(R.id.sellerTextView)
         val offerPriceTextView: TextView = view.findViewById(R.id.offerPriceTextView)
         val discountPerTextView: TextView = view.findViewById(R.id.discountPerTextView)
+        val getOfferButton: Button = view.findViewById(R.id.getOfferButton)
     }
 }

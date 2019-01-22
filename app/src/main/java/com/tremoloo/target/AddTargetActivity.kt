@@ -13,6 +13,8 @@ class AddTargetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_target)
         setSupportActionBar(addTargetToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
 
         categoriesRadioGroup.setOnPositionChangedListener { button, currentPosition, lastPosition ->
             Toast.makeText(this@AddTargetActivity, "Position Changed! Position: $currentPosition", Toast.LENGTH_SHORT)
