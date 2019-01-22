@@ -4,7 +4,7 @@
     <string name="user_name">username</string>
     <string name="password">Password</string>
     <string name="login">login</string>
-    <string name="expected_avg_income">Expected Avg. income is:</string>
+    <string name="expected_avg_income">What’s your expected avg. income</string>
     <string name="save">save</string>
     <string name="target_name">Target Name</string>
     <string name="target_price">Target Price</string>
@@ -23,4 +23,5 @@
     <string name="boost_your_target_from_your_friends_on_tillion_or_not">Boost your target from your friends on Tillion
         or not
     </string>
+    <string name="lets_go">lets go</string>
 </resources>

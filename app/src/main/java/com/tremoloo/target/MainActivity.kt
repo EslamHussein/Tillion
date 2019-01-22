@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
 
         setSupportActionBar(mainToolbar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setIcon(R.drawable.ic_sport_car);
+        supportActionBar?.setIcon(R.drawable.oval)
 
         title = ""
         val data = ArrayList<TargetItem>()
