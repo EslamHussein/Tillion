@@ -18,10 +18,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_empty_targets.*
 
 
-class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
+class MainActivity : AppCompatActivity() {
 
 
-    private var fortCallback: FortCallBackManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = TargetsAdapter(this@MainActivity, data)
         }
-        fortCallback = FortCallBackManager.Factory.create()
 
 //        targedsRecyclerView.visibility = View.GONE
         emptyTargetsInclude.visibility = View.GONE
@@ -53,48 +51,9 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
         }
     }
 
-    private fun requestForPayfortPayment() {
-        val payFortData = PayFortData()
-        payFortData.amount = (1.2 * 100).toInt()
-            .toString()// Multiplying with 100, bcz amount should not be in decimal format
-        payFortData.command = PayFortPayment.PURCHASE
-        payFortData.currency = PayFortPayment.CURRENCY_TYPE
-        payFortData.customerEmail = "readyandroid@gmail.com"
-        payFortData.language = PayFortPayment.LANGUAGE_TYPE
-        payFortData.merchantReference = System.currentTimeMillis().toString()
-        val payFortPayment = PayFortPayment(this, this.fortCallback, this)
-        payFortPayment.requestForPayment(payFortData)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PayFortPayment.RESPONSE_PURCHASE) {
-            fortCallback?.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 
 
-    override fun onPaymentRequestResponse(responseType: Int, responseData: PayFortData?) {
 
-        when (responseType) {
-            PayFortPayment.RESPONSE_GET_TOKEN -> {
-                Toast.makeText(this, "Token not generated", Toast.LENGTH_SHORT).show();
-                Log.e("onPaymentResponse", "Token not generated");
-            }
-            PayFortPayment.RESPONSE_PURCHASE_CANCEL -> {
-                Toast.makeText(this, "Payment cancelled", Toast.LENGTH_SHORT).show();
-                Log.e("onPaymentResponse", "Payment cancelled");
-            }
-            PayFortPayment.RESPONSE_PURCHASE_FAILURE -> {
-                Toast.makeText(this, "Payment failed", Toast.LENGTH_SHORT).show();
-                Log.e("onPaymentResponse", "Payment failed");
-            }
-            else -> {
-                Toast.makeText(this, "Payment successful", Toast.LENGTH_SHORT).show();
-                Log.e("onPaymentResponse", "Payment successful");
-            }
-        }
-    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

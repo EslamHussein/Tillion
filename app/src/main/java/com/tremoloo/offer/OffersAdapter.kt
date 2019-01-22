@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.tremoloo.R
+import com.tremoloo.payfort.PaymentDialogFragment
 
-class OffersAdapter(private val data: ArrayList<OfferItem>? = null) :
+
+class OffersAdapter(private val activity: AppCompatActivity, private val data: ArrayList<OfferItem>? = null) :
     RecyclerView.Adapter<OffersAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -28,6 +31,12 @@ class OffersAdapter(private val data: ArrayList<OfferItem>? = null) :
         holder.offerImageView.setImageResource(item.image)
         holder.sellerTextView.text = item.seller
         holder.offerPriceTextView.text = item.price.toString()
+
+        holder.itemView.setOnClickListener {
+
+            PaymentDialogFragment.newInstance(item).show(activity.supportFragmentManager, "fragment_edit_name");
+
+        }
     }
 
 

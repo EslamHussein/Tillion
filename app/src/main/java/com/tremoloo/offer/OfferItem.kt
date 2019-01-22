@@ -1,3 +1,7 @@
 package com.tremoloo.offer
 
-data class OfferItem(val image: Int, val seller: String, val price: Float, val discount: Float)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class OfferItem(val image: Int, val seller: String, val price: Float, val discount: Float) : Parcelable
