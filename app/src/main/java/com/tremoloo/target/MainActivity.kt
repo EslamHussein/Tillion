@@ -3,6 +3,8 @@ package com.tremoloo.target
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +27,10 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(mainToolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setIcon(R.drawable.ic_sport_car);
 
+        title = ""
         val data = ArrayList<TargetItem>()
         repeat(5) {
             data.add(TargetItem("mini copper", R.drawable.ic_sport_car, 2000F, 300F))
@@ -40,6 +45,8 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
 //        targedsRecyclerView.visibility = View.GONE
         emptyTargetsInclude.visibility = View.GONE
 
+        targedSeekBar.isEnabled = false
+        targedSeekBar.setProgress(2000F)
         addTargetButton.setOnClickListener {
             //            requestForPayfortPayment()
             startActivity(Intent(this@MainActivity, AddTargetActivity::class.java))
@@ -87,5 +94,27 @@ class MainActivity : AppCompatActivity(), IPaymentRequestCallBack {
                 Log.e("onPaymentResponse", "Payment successful");
             }
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.getItemId()
+
+
+        if (id == R.id.action_add) {
+            startActivity(Intent(this@MainActivity, AddTargetActivity::class.java))
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }
